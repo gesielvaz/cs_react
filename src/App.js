@@ -1,16 +1,31 @@
+
 import './App.css';
-import Pessoa from './components/Pessoa';
+import { ListaRender } from './components/ListaRende';
 
 function App() {
+  const meusItens = ["React", "Vue","Angula", ]
   return (
     <div className="App">
-      
-      <Pessoa
-        nome=" David"
-        idade= "25 Anos"
-        profissao= " Comediante"
-      />
+      <h1>Renderização de Lista</h1>
+      <ListaRender itens={meusItens}/>
     </div>
   );
 }
-export default App;
+export default App
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Renderização</h1>
+//       <Condicional/>
+//     </div>
+//   );
+// }
+// function App() {
+//   return (
+//     <div className="App">
+//       <Evento />
+//       <Form />
+//     </div>
+//   );
+// }
