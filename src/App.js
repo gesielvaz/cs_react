@@ -1,35 +1,22 @@
-import { Link, Route, Switch, Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Empresa } from "./pages/Empresa";
 import { Home } from "./pages/Home";
 import { Contato } from "./pages/Contato";
+import { Navbar } from './components/layout/Navbar';
+import { Footer } from './components/layout/Footer';
 
 function App() {
   return (
     <Router>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/empresa">Empresa</Link>
-        </li>
-        <li>
-          <Link to="/contato">Contato</Link>
-        </li>
-      </ul>
-      <Switch>
-        <Route path='/'>
-          <Home />
-        </Route>
-        <Route path='/empresa'>
-          <Empresa />
-        </Route>
-        <Route path='/contato'>
-          <Contato />
-        </Route>
-      </Switch>
+      <Navbar/>
+      <Routes>
+        <Route echo path='/empresa' element={<Empresa />} />
+        <Route path='/contato' element={<Contato />} />
+        <Route path='/' element={<Home />} />
+      </Routes>
+      <Footer/>
     </Router>
-  )
+  );
 }
 
 export default App;
