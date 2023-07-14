@@ -1,31 +1,35 @@
-
-import './App.css';
-import { ListaRender } from './components/ListaRende';
+import { Link, Route, Switch, Router } from 'react-router-dom';
+import { Empresa } from "./pages/Empresa";
+import { Home } from "./pages/Home";
+import { Contato } from "./pages/Contato";
 
 function App() {
-  const meusItens = ["React", "Vue","Angula", ]
   return (
-    <div className="App">
-      <h1>Renderização de Lista</h1>
-      <ListaRender itens={meusItens}/>
-    </div>
-  );
+    <Router>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/empresa">Empresa</Link>
+        </li>
+        <li>
+          <Link to="/contato">Contato</Link>
+        </li>
+      </ul>
+      <Switch>
+        <Route path='/'>
+          <Home />
+        </Route>
+        <Route path='/empresa'>
+          <Empresa />
+        </Route>
+        <Route path='/contato'>
+          <Contato />
+        </Route>
+      </Switch>
+    </Router>
+  )
 }
-export default App
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>Renderização</h1>
-//       <Condicional/>
-//     </div>
-//   );
-// }
-// function App() {
-//   return (
-//     <div className="App">
-//       <Evento />
-//       <Form />
-//     </div>
-//   );
-// }
+export default App;
